@@ -3,29 +3,49 @@ Pathfinding is the problem of finding a path between two points on a plane. It i
 Pathfinding in commercial games is frequently accomplished using search algorithms1. We consider a simplified version in this assignment. The following shows a 2D map drawn using ASCII characters:
 
 1 1 1 1 1 1 4 7 8 X
+
 1 1 1 1 1 1 1 5 8 8
+
 1 1 1 1 1 1 1 4 6 7
+
 1 1 1 1 1 X 1 1 3 6
+
 1 1 1 1 1 X 1 1 1 1
+
 1 1 1 1 1 1 1 1 1 1
+
 6 1 1 1 1 X 1 1 1 1
+
 7 7 1 X X X 1 1 1 1
+
 8 8 1 1 1 1 1 1 1 1
+
 X 8 7 1 1 1 1 1 1 1
+
 Given a start position and an end position on the map, our aim is to find a path from the start position to the end position. The character 'X' denotes an obstacle that cannot be traversed by a path, while the digits represent the elevation at the respective positions.
 
 Any position is indicated by the coordinates (i, j), where i is the row number (ordered top to bottom) and j is the column number (ordered left to right). For example, the top left position is (1, 1), the bottom right is (10, 10), while the position with elevation 3 is (4, 9). Given start position (1, 1) and end position (10, 10), a possible path is:
 
 * * * 1 1 1 4 7 8 X
+
 1 1 * 1 1 1 1 5 8 8
+
 1 1 * * * * * * * 7
+
 1 1 1 1 1 X 1 1 * 6
+
 1 1 1 1 1 X 1 * * 1
+
 1 1 1 1 1 1 1 * 1 1
+
 6 1 1 1 1 X 1 * * *
+
 7 7 1 X X X 1 1 1 *
+
 8 8 1 1 1 1 1 1 1 *
+
 X 8 7 1 1 1 1 1 1 *
+
 Note that we use 4-connectedness for paths, which means any two points on the path are only connected if they are vertically or horizontally (but not diagonally) adjacent.
 
 Problem Formulation
@@ -89,30 +109,50 @@ The inputs to the program are as follow:
 1 1
 10 10
 1 1 1 1 1 1 4 7 8 X
+
 1 1 1 1 1 1 1 5 8 8
+
 1 1 1 1 1 1 1 4 6 7
+
 1 1 1 1 1 X 1 1 3 6
+
 1 1 1 1 1 X 1 1 1 1
+
 1 1 1 1 1 1 1 1 1 1
+
 6 1 1 1 1 X 1 1 1 1
+
 7 7 1 X X X 1 1 1 1
+
 8 8 1 1 1 1 1 1 1 1
+
 X 8 7 1 1 1 1 1 1 1
+
 The first line indicates the size of the map (rows, columns), while the second and third line represent the start and end positions respectively. The map then follows where all elevation values are integers from 0 to 9 inclusive.
 [algorithm] specifies the search algorithm to use, with the possible values of bfs, ucs, and astar.
 [heuristic] specifies the heuristic to use for A* search, with the possible values of euclidean and manhattan. This input is ignored for BFS and UCS.
 Your program must then print to standard output the path returned by the search algorithm in the following format:
 
 * * * 1 1 1 4 7 8 X
+    * 
 1 1 * 1 1 1 1 5 8 8
+      
 1 1 * * * * * * * 7
+      
 1 1 1 1 1 X 1 1 * 6
+      
 1 1 1 1 1 X 1 * * 1
+      
 1 1 1 1 1 1 1 * 1 1
+      
 6 1 1 1 1 X 1 * * *
+      
 7 7 1 X X X 1 1 1 *
+      
 8 8 1 1 1 1 1 1 1 *
+      
 X 8 7 1 1 1 1 1 1 *
+
 where the path is indicated by asterisks *, superimposed on the original map beginning from the start position and leading to the end position. Do not include extraneous spaces or other characters in the output.
 
 If the given map or problem does not have a feasible path, your program must print:
