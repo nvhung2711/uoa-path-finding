@@ -25,7 +25,6 @@ X 8 7 1 1 1 1 1 1 1
 Given a start position and an end position on the map, our aim is to find a path from the start position to the end position. The character 'X' denotes an obstacle that cannot be traversed by a path, while the digits represent the elevation at the respective positions.
 
 Any position is indicated by the coordinates (i, j), where i is the row number (ordered top to bottom) and j is the column number (ordered left to right). For example, the top left position is (1, 1), the bottom right is (10, 10), while the position with elevation 3 is (4, 9). Given start position (1, 1) and end position (10, 10), a possible path is:
-
 * * * 1 1 1 4 7 8 X
 
 1 1 * 1 1 1 1 5 8 8
